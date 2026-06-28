@@ -1,0 +1,138 @@
+% =====================================================================
+% DROP-IN SECTION for ILAC-WAN_BTP_Proposal_v2.tex
+% Insert with \input{freshness_section} right after the Direction 2
+% subsection (line ~486), or as a standalone \section before
+% "Comparative Assessment". It uses the proposal's own macros
+% (\Dir, \Ltag, limitbox, ideabox, goldbox) and color palette, so it
+% compiles unchanged on Overleaf. New \cite keys are in freshness_refs.bib.
+% Also recommended: edit the Executive Summary / Introduction to state the
+% spine sentence (see freshness_intro_patch.tex).
+% =====================================================================
+
+\section{Implemented Contribution: The Moving-Target Freshness Spine}
+\label{sec:freshness}
+
+The professor's decisive feedback was that the work needed a single, clear
+objective. We provide one and implement it: \emph{energy-optimal semantic
+knowledge aggregation for swarms observing \textbf{moving} targets}, with target
+motion entering through \textbf{information freshness}. This makes
+\Dir{1} (fidelity-aware compression) and \Dir{2} (predictive topology) two
+mechanisms of one story rather than two independent tweaks, and it activates the
+exact term the audit flagged as missing in \Ltag{L8}: \emph{``no fidelity,
+freshness, or value of information.''}
+
+\subsection{Why motion must enter through value, not mobility (a verified negative result)}
+
+The intuitive integration --- re-anchor each patrol centre $\mathbf c_i$ on the
+(predicted) target and let agents physically chase --- is \emph{inert} in this
+framework, and we show it empirically in our own faithful re-implementation.
+
+\begin{limitbox}{Mobility-driven tracking does nothing here}
+At the paper's patrol radius $R\in[80,100]$\,m, a target moving $3$--$7$\,m/s
+travels only $30$--$41$\,m per round, a fraction of $R$, so the coverage
+constraint $\lVert\mathbf p_i-\mathbf c_i\rVert\le R$ never binds: target class
+is invisible and the apparent energy differences are non-monotone noise (std
+$\gg$ signal). Decoupling a tight sensing radius $r_{\mathrm{track}}=8$\,m makes
+the \emph{geometric} chase demand explode to $40$\,m/round, yet realized energy
+stays identical to the static case ($0.597$ vs.\ $0.601$\,J), because the inner
+solver only \emph{targets} coverage during its optional motion step and the
+matcher routes around it. Mobility is a near-discontinuous radio-tuning term, not
+a tracking cost.
+\end{limitbox}
+
+This is consistent with the proposal's own ranking: the mobility/sensing route is
+\Dir{4} (ISAC co-design), demoted to rank~4 precisely because Cram\'er--Rao-bound
+trajectory design is crowded, and the 2024--2026 ISAC-tracking literature
+(EKF\,+\,posterior-CRB trajectory optimization) confirms that lane is saturated
+\cite{isacswarm}. We therefore couple motion to the framework's \emph{own}
+objects --- the compression ratio $\eta$ and the aggregation tree.
+
+\subsection{The freshness model}
+
+Each source $s$ (data collected by agent $s$) observes a target with
+\emph{agility} $a_s$, its mean speed over the horizon. The receiver's estimation
+error of a moving target is a non-decreasing function of the age of the last
+update --- the standard Age-of-Information / remote-estimation result
+\cite{sun2017,aoii2020,aoi}. We price that staleness as a freshness distortion
+that grows with how long a source's data waits before delivery,
+\begin{equation}
+D^{\mathrm{fresh}}_s \;=\; a_F\, a_s\,(\tau_s)^p,\qquad p\ge 1,
+\label{eq:dfresh}
+\end{equation}
+where $\tau_s = h_s\,T$ is the source's age in aggregation hops $h_s$ (each
+fuse--compress--relay stage is one processing-age step --- the multi-hop /
+version-AoI model \cite{aosi2025}) and $p{=}1$ is the linear AoI form. Added to
+the path-multiplicative compression distortion of \Dir{1} (audit \Ltag{L14}), the
+assembled root report carries
+\begin{equation}
+D_{\mathrm{root}} \;=\; \underbrace{a_D\textstyle\sum_s w_s\!\!\sum_{\text{hops}}\!\ln(1/\eta)}_{\text{compression (Dir.\,1)}}
+\;+\; \underbrace{\textstyle\sum_s w_s\, D^{\mathrm{fresh}}_s}_{\text{freshness (new)}},\qquad
+w_s=\tfrac{\text{bits}_s}{\sum_{s'}\text{bits}_{s'}}.
+\label{eq:droot}
+\end{equation}
+Equation~\eqref{eq:droot} couples motion to two controls: the compression ratio
+$\eta$ (per pair) and the per-source hop count $h_s$ (the topology).
+
+\subsection{Two coupling points, both verified}
+
+\begin{ideabox}{\Dir{1} --- compression bends to motion}
+Through the endogenous per-hop $\eta$-floor (our replacement for the exogenous
+$\eta^{\mathrm{req}}$, audit \Ltag{L23}), a faster target consumes more of the
+fidelity budget $D_{\max}$ via \eqref{eq:dfresh}, so the floor \emph{rises} and
+the agent must compress \emph{less}. Exactly: as target speed goes $0\!\to\!9$\,m/s
+the optimal $\eta$ rises $0.549\!\to\!0.719$ and energy rises $+9\%$, monotone and
+reproducible (not noise), and robust across $30$ random pairs. This strengthens
+the headline \Dir{1} result: the paper's ``always compress maximally'' fails by an
+amount set by \emph{target motion}.
+\end{ideabox}
+
+\begin{ideabox}{\Dir{2} --- a fresher report, for free}
+With $D_{\mathrm{root}}$ depending on $h_s$, the matching weight gains the
+marginal staleness a source accrues when its holder transmits:
+$w(i\!\to\!j)=E(i\!\to\!j)+\lambda_F\,a_F\,T\!\sum_{s\in i}\text{bits}_s\,a_s$.
+The same exact Blossom matcher then gives fast-decaying sources shorter paths.
+Over $20$ missions this cuts root staleness by \textbf{40\%} at \textbf{no energy
+cost} ($-1.5\%$), reduces \emph{exactly} to the paper at $\lambda_F{=}0$
+($20/20$ identical), and its advantage grows with agility spread
+($21\%\!\to\!48\%$) --- the goal-oriented / value-of-information regime
+\cite{goaloriented2025}.
+\end{ideabox}
+
+\paragraph{Prediction (effective decay).} The agility in \eqref{eq:dfresh} is the
+predictor's residual error rate, so a better predictor lowers it. A
+constant-velocity Kalman filter and a CV/CT interacting-multiple-model (IMM)
+predictor --- the established maneuvering-target tools --- dominate the naive
+finite-difference predictor on every target class; predicting ahead pays once
+motion exceeds sensor noise and yields a ${\sim}23\%$ fresher report. Honest
+scope: for near-static targets, not predicting is best, so the freshness-optimal
+agent simply selects the lowest-residual predictor.
+
+\subsection{Metaheuristic matchers, used correctly (mentor's request)}
+
+The per-round pairing is solved \emph{exactly} by Blossom in polynomial time, so
+nature-inspired metaheuristics cannot beat it at this scale --- they are included
+only as honest comparison baselines. We implement ant colony, artificial bee
+colony, cuckoo search, and Egyptian vulture over the pairing objective. They
+approach but never beat exact matching (a $0.1$--$0.3\%$ gap that grows with $N$
+while Blossom stays optimal and fast, $12$\,ms at $N{=}30$), and at mission level
+they cluster at the myopic per-round optimum ($\approx 13$--$15\%$ above the
+brute-force oracle) while only the learned \emph{lookahead} policy closes the gap
+($3.6\%$). The contribution is the learning, not the metaheuristic --- which is
+exactly the defensible conclusion.
+
+\subsection{Verification}
+
+\begin{goldbox}{Every claim is an automated check}
+The moving-target spine adds $11$ checks (\texttt{run\_freshness.py}) and the
+metaheuristic baselines add $5$ (\texttt{run\_metaheuristics.py}); with the
+existing suites the project totals \textbf{58 automated checks, $0$ failures},
+each regenerating from code in minutes. A polished, animated web demo replays
+these real computed traces for the viva and reviewers.
+\end{goldbox}
+
+\noindent\textbf{Headline numbers (all measured).} $\eta$ rises $0.549\!\to\!0.719$
+and energy $+9\%$ with target speed; value-prioritized topology is $40\%$ fresher
+at no energy cost and reduces to the paper at $\lambda_F{=}0$; the freshness
+advantage scales $21\%\!\to\!48\%$ with agility spread; learned topology gap
+$3.6\%$ vs.\ paper $14.7\%$ vs.\ random $29.1\%$; Kalman/IMM dominate naive
+prediction with a ${\sim}23\%$ fresher report.

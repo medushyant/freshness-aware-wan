@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WAN · Freshness-Aware Semantic Aggregation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<canvas id="bg-swarm"></canvas>
+
+<header id="topbar">
+  <a class="brand" href="#overview"><span class="dot"></span>WAN<span class="thin">·freshness</span></a>
+  <nav id="tabs">
+    <button data-tab="overview" class="active">Overview</button>
+    <button data-tab="swarm">Swarm</button>
+    <button data-tab="hmap">H-MAP</button>
+    <button data-tab="blossom">Blossom</button>
+    <button data-tab="learned">Learned · RL</button>
+    <button data-tab="freshness">Freshness</button>
+    <button data-tab="graphs">Graphs</button>
+    <button data-tab="verify">Verify</button>
+    <button data-tab="compare">Before / After</button>
+  </nav>
+</header>
+
+<main>
+<!-- ===================== OVERVIEW ===================== -->
+<section class="panel active" id="tab-overview">
+  <div class="hero">
+    <div class="tag">B.Tech research extension · arXiv:2604.02381</div>
+    <h1>Energy-optimal semantic aggregation for swarms that watch <span class="grad">moving targets</span>.</h1>
+    <p class="lede">The base paper assumes targets never move and never prices how <em>fresh</em> a report is. We make target motion the spine — coupling it to the compression ratio and the aggregation topology through <strong>information freshness</strong>, the right channel where physical chasing is provably inert. Explore each algorithm, animated, in its own tab.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="num" data-count="58">0</span><label>automated checks · 0 fail</label></div>
+      <div class="stat"><span class="num" data-count="40" data-suffix="%">0</span><label>fresher report · no energy cost</label></div>
+      <div class="stat"><span class="num" data-count="9" data-suffix="%">0</span><label>energy lifts with target agility</label></div>
+    </div>
+    <div class="hero-cta">
+      <button class="cta" data-goto="swarm">▶ Watch the swarm</button>
+      <button class="ghost" data-goto="hmap">See H-MAP aggregate</button>
+    </div>
+  </div>
+  <div id="hero3d" class="hero3d"><span class="hint">3D swarm · drag to orbit</span></div>
+  <div class="tour">
+    <h3>How to read this site</h3>
+    <div class="tourgrid">
+      <div class="tcard" data-goto="swarm"><b>Swarm</b><span>Live drones patrolling and tracking moving targets.</span></div>
+      <div class="tcard" data-goto="hmap"><b>H-MAP</b><span>The knockout aggregation tournament, step by step.</span></div>
+      <div class="tcard" data-goto="blossom"><b>Blossom</b><span>How each round's pairs are matched — exactly.</span></div>
+      <div class="tcard" data-goto="learned"><b>Learned · RL</b><span>The value model that replaces the hand-tuned knob.</span></div>
+      <div class="tcard" data-goto="freshness"><b>Freshness</b><span>Our spine: target motion → staler data → the fix.</span></div>
+      <div class="tcard" data-goto="verify"><b>Verify</b><span>Every claim is one of 58 automated checks.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SWARM ===================== -->
+<section class="panel" id="tab-swarm">
+  <div class="kicker">The swarm · live simulation</div>
+  <h2>Drones patrol, sense, and track moving targets.</h2>
+  <div class="vizrow">
+    <div class="stage card"><canvas id="swarmCanvas"></canvas></div>
+    <div class="controls card">
+      <h3>Controls</h3>
+      <label class="ctl">Target motion
+        <select id="swarmKind"><option value="static">static</option>
+          <option value="dynamic" selected>dynamic (constant velocity)</option>
+          <option value="time_varying">maneuvering (turns)</option></select></label>
+      <label class="ctl">Drones <input type="range" id="swarmN" min="4" max="10" value="6" /><span id="swarmNv">6</span></label>
+      <label class="ctl">Speed <input type="range" id="swarmSpd" min="1" max="10" value="5" /></label>
+      <div class="btns"><button id="swarmPlay" class="mini">⏸ pause</button><button id="swarmReset" class="mini">↻ reset</button></div>
+      <div class="legend">
+        <span><i class="lg drone"></i>drone</span><span><i class="lg disk"></i>patrol region</span>
+        <span><i class="lg tgt"></i>target</span><span><i class="lg link"></i>comm link</span><span><i class="lg sense"></i>sensing</span>
+      </div>
+      <p class="muted small">Each drone stays within its patrol disk and re-anchors on its target. Comm links appear between drones in range — the graph the aggregation runs over.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HMAP ===================== -->
+<section class="panel" id="tab-hmap">
+  <div class="kicker">H-MAP · hierarchical aggregation</div>
+  <h2>A knockout tournament fuses knowledge into one report.</h2>
+  <div class="vizrow">
+    <div class="stage card"><svg id="hmapSvg" viewBox="0 0 640 420"></svg></div>
+    <div class="controls card">
+      <h3>Run the aggregation</h3>
+      <div class="seg"><button id="modePaper" class="segbtn active">Paper</button><button id="modeOurs" class="segbtn">Ours (fidelity+freshness)</button></div>
+      <div class="btns"><button id="hmapPlay" class="mini">▶ play</button><button id="hmapStep" class="mini">▷ step</button><button id="hmapReset" class="mini">↻ reset</button></div>
+      <div class="meter"><label>cumulative energy</label><div class="bar"><div id="energyBar"></div></div><span id="energyVal">0.0 J</span></div>
+      <div class="meter"><label>report quality (D vs D_max)</label><div class="bar q"><div id="qualBar"></div><div class="floor"></div></div><span id="qualVal">—</span></div>
+      <p id="hmapNote" class="muted small">Each round, agents pair (Blossom). A sender compresses its payload (η), transmits it (packet flies), the partner fuses both, and the sender retires — until one root holds everything. Replays the real pairing trace.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BLOSSOM ===================== -->
+<section class="panel" id="tab-blossom">
+  <div class="kicker">Blossom · max-weight matching</div>
+  <h2>Who pairs with whom each round — solved exactly.</h2>
+  <div class="vizrow">
+    <div class="stage card"><svg id="blossomSvg" viewBox="0 0 520 420"></svg></div>
+    <div class="controls card">
+      <h3>Match the round</h3>
+      <div class="btns"><button id="blNew" class="mini">⟳ new instance</button><button id="blShow" class="mini">✦ optimal (Blossom)</button></div>
+      <div class="seg"><button id="blGreedy" class="segbtn">greedy</button><button id="blRandom" class="segbtn">random</button></div>
+      <table class="mini-table"><thead><tr><th>policy</th><th>total energy</th></tr></thead><tbody id="blTable"></tbody></table>
+      <p class="muted small">Edges show candidate pair energies; Blossom selects the minimum-total-weight perfect matching in polynomial time. Greedy and random leave energy on the table — and the per-round optimum still needs the learned lookahead to be globally good.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LEARNED / RL ===================== -->
+<section class="panel" id="tab-learned">
+  <div class="kicker">Direction 2 · learned predictive topology</div>
+  <h2>A learned cost-to-go replaces the hand-tuned knob.</h2>
+  <div class="vizrow">
+    <div class="stage card">
+      <canvas id="zetaChart"></canvas>
+      <div class="zeta-ctl"><label>paper's knob ζ <input type="range" id="zetaSlider" min="0" max="100" value="40" /></label><span id="zetaReadout"></span></div>
+    </div>
+    <div class="controls card">
+      <h3>Why learning wins</h3>
+      <p class="muted">The paper steers topology with a hand-tuned potential field <code>ζ</code>. Drag the slider: its energy wobbles (fragile). The learned value model <code>V̂(state)</code> predicts remaining mission energy and needs <em>no knob</em> — a flat, lower line.</p>
+      <canvas id="gapChart"></canvas>
+      <p class="cap">Optimality gap vs a brute-force oracle (N=5). Every per-round matcher — including the ACO/ABC/Cuckoo/Egyptian-Vulture baselines — clusters at the myopic level; only the learned <em>lookahead</em> closes the gap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FRESHNESS ===================== -->
+<section class="panel" id="tab-freshness">
+  <div class="kicker">The spine · freshness drives compression & topology</div>
+  <h2>Faster target → staler data → the model responds.</h2>
+  <div class="negbar card">
+    <div><b>First, the negative result.</b> Chasing targets with motion energy is inert here: at the patrol radius a target moves a fraction of R, so the coverage constraint never binds.</div>
+    <div class="proofline"><span class="bad">40.7 m demanded</span><span class="arrow">→</span><span class="good">0 J spent</span></div>
+  </div>
+  <div class="grid2">
+    <div class="card chart-card"><h3>D1 · compression bends to motion</h3><canvas id="freshChart"></canvas><div class="cap">Exact: a faster target raises the η-floor 0.549→0.719 and lifts energy +9%.</div></div>
+    <div class="card chart-card"><h3>D2 · a fresher report, for free</h3><canvas id="topoChart"></canvas><div class="cap">Value-prioritized matching: <strong>40% fresher</strong> at <strong>no energy cost</strong>; reduces to the paper at λ=0.</div></div>
+    <div class="card chart-card"><h3>Value of prioritization grows with spread</h3><canvas id="spreadChart"></canvas><div class="cap">The freshness advantage rises 21%→48% as target agility spreads.</div></div>
+    <div class="card chart-card"><h3>Better prediction → lower effective decay</h3><canvas id="predChart"></canvas><div class="cap">CV-Kalman and CV/CT IMM beat the naive predictor (1-step error per class).</div></div>
+  </div>
+</section>
+
+<!-- ===================== GRAPHS ===================== -->
+<section class="panel" id="tab-graphs">
+  <div class="kicker">Figure gallery · every result, regenerable</div>
+  <h2>All the graphs, and what each one proves.</h2>
+  <p class="section-lede">Every figure is produced by a <code>run_*.py</code> script from the raw engine — click any to enlarge. Grouped by contribution.</p>
+  <div id="gallery"></div>
+</section>
+
+<!-- ===================== VERIFY ===================== -->
+<section class="panel" id="tab-verify">
+  <div class="kicker">Every claim is checkable</div>
+  <h2><span class="num big" data-count="58">0</span> automated checks regenerate from code.</h2>
+  <div id="checkGrid" class="checkgrid"></div>
+  <div class="grid2">
+    <div class="card chart-card"><h3>D1 · energy–fidelity frontier</h3><canvas id="paretoChart"></canvas><div class="cap">The paper's point (✕) is dominated on both axes and violates the fidelity floor it never measures.</div></div>
+    <div class="card chart-card"><h3>Moving targets · the washout</h3><canvas id="washChart"></canvas><div class="cap">Per-round displacement stays well below the patrol radius band — motion never bites.</div></div>
+  </div>
+  <p class="muted center">The site replays real computed traces only — each number is emitted by a passing <code>run_*.py</code>.</p>
+</section>
+
+<!-- ===================== COMPARE ===================== -->
+<section class="panel" id="tab-compare">
+  <div class="kicker">Before / After</div>
+  <h2>The paper vs our extension, at a glance.</h2>
+  <div id="baCards" class="ba-cards"></div>
+  <div class="table-wrap card"><table id="cmpTable"><thead><tr><th>Dimension</th><th>Base paper</th><th>Our extension</th></tr></thead><tbody></tbody></table></div>
+</section>
+</main>
+
+<div id="lightbox"><img id="lbImg" alt="figure" /><span id="lbCap"></span></div>
+
+<footer><div class="foot-inner">
+  <div><strong>Freshness-Aware Semantic Aggregation</strong><br/><span class="muted">Extension of Zhao et al., ILAC-WAN (arXiv:2604.02381). Every figure regenerates from the repo.</span></div>
+  <div class="muted small">Real engine output · 58/58 checks · canvas + SVG + GSAP + Chart.js</div>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+<script src="js/hero3d.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/algos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

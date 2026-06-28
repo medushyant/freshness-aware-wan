@@ -1,0 +1,15 @@
+Direction 2 verification report  (2 s total)
+============================================================
+PASS  T0 value model fits the cost-to-go  | R^2=0.90 on 52 rollout states
+PASS  T1 paper recipe is zeta-fragile  | worst/best over sweep = 1.10
+PASS  T1 stage A <= paper at the paper's own zeta  | 8.790 vs 8.806 J
+PASS  T1 learned (no knob) beats the BEST hand-tuned paper  | 8.289 vs 8.806 J
+PASS  T1 flexible schedule helps further  | 8.025 vs 8.289 J
+PASS  T1 auto-scaled stage B is competitive without tuning  | 8.806 vs worst paper 9.687 J
+PASS  T2 learned gap <= paper gap  | learned 0.5% vs paper 13.3%
+PASS  T2 all structured policies beat random  | random gap 24.4%
+PASS  T3 size transfer holds at N=8  | learned 12.36 vs paper 12.81 J
+PASS  T3 size transfer holds at N=10  | learned 15.88 vs paper 16.92 J
+PASS  T4 flexible <= forced (dominance in practice)  | 8.085 vs 8.428 J over 8 scenarios
+
+mean optimality gaps at N=5: paper 13.3%, stageA 13.3%, lyapunov 13.3%, learned 0.5%, greedy 18.9%, random 24.4%

@@ -1,0 +1,11 @@
+Upgrade verification report  (11 s, value R^2=0.90)
+============================================================
+PASS  U1 dominance holds with 8 scenarios  | ref (D=2.16, E=0.594)
+PASS  U1 reference still violates the floor  | D_ref=2.16
+PASS  U2 paper fragility persists at 8 scenarios  | worst/best=1.09
+PASS  U2 stage C (no knob) <= best hand-tuned paper  | 8.428 vs 8.813 J
+PASS  U3 stage D <= stage C+flex on held-out scenarios  | D: 7.754 vs C+flex: 8.085 J
+PASS  U3 full ladder beats paper's best by a clear margin  | 7.754 vs 8.813 J (-12%)
+PASS  U4 learned saves total energy without a worse bottleneck agent  | worst-agent 2.66 vs 3.09 J
+PASS  U5 derived bound tracks ANY chosen floor  | Dmax=0.9 -> worst D=0.90; Dmax=1.2 -> worst D=1.08; Dmax=1.5 -> worst D=1.26
+PASS  U5 WZ saving positive across omega  | omega=0.5 -> 4.3%; omega=0.9 -> 5.2%

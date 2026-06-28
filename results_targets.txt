@@ -1,0 +1,7 @@
+Target-tracking extension — verification
+==================================================
+PASS  G1 path-length ordering static < dynamic <= time-varying  | 0 < 52, tv 52 m
+PASS  G1 predictability ordering static < dynamic < time-varying  | 0.0 < 2.0 < 6.4 m
+PASS  G2 tracking energy grows with target agility  | 0.00 <= 4.05 <= 6.66 J
+PASS  G2 prediction helps most on the hardest targets  | predict-ahead saves 28% on time-varying
+PASS  G3 trajectory snapshot saved

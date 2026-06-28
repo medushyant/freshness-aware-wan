@@ -1,0 +1,17 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.ipynb_checkpoints/
+
+# os / tooling
+.DS_Store
+.claude/
+
+# transient verification screenshots
+web/shots/
+
+# copyrighted source paper — do not redistribute (keep our own proposal/handoff)
+reference/base_paper_2604.02381.pdf
+reference/base_paper_text.txt
