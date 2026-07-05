@@ -1,0 +1,1 @@
+{"prefill_mJ_per_tok": 103.99303213793036, "decode_mJ_per_tok": 5371.081139077607, "total_mJ": 68252386.4565051, "tok_in": 231250, "tok_out": 8230, "n_views": 250, "gpu": "colab-nvml", "model": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct", "idle_W": 9.700578358208956}

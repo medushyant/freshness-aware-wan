@@ -1,0 +1,90 @@
+{
+ "F0": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F0_wp0_smoke.png",
+  "run": "wp0_smoke"
+ },
+ "F1.1": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F1_1_scheme_energy.png",
+  "run": "wp1"
+ },
+ "F1.2": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F1_2_control_overhead.png",
+  "run": "wp1"
+ },
+ "F1.3": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F1_3_dropout.png",
+  "run": "wp1"
+ },
+ "F1.4": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F1_4_breakeven.png",
+  "run": "wp1"
+ },
+ "F1.5": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F1_5_transcript.png",
+  "run": "wp1"
+ },
+ "F2.1": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F2_1_violation_rates.png",
+  "run": "wp2"
+ },
+ "F2.2": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F2_2_coverage.png",
+  "run": "wp2"
+ },
+ "F2.3": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F2_3_mobility_policies.png",
+  "run": "wp2"
+ },
+ "F2.4": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F2_4_radio_map.png",
+  "run": "wp2"
+ },
+ "F2.5": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F2_5_sionna.png",
+  "run": "wp2_sionna"
+ },
+ "F3.1": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_1_overlap_scatter.png",
+  "run": "wp3"
+ },
+ "F3.2": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_2_rate_fidelity.png",
+  "run": "wp3"
+ },
+ "F3.3": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_34_energy_gap.png",
+  "run": "wp3"
+ },
+ "F3.4": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_34_energy_gap.png",
+  "run": "wp3"
+ },
+ "F3.5": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_5_corruption.png",
+  "run": "wp3"
+ },
+ "F3.6": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_6_fused_size.png",
+  "run": "wp3"
+ },
+ "F3.7": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F3_7_pipeline.png",
+  "run": "wp3"
+ },
+ "F4.1": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F4_1_grand_showdown.png",
+  "run": "wp4"
+ },
+ "F4.2": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F4_2_staleness.png",
+  "run": "wp4"
+ },
+ "F4.3": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F4_3_lifetime.png",
+  "run": "wp4"
+ },
+ "F4.4": {
+  "figure": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/figures/awan/F4_4_scaling.png",
+  "run": "wp4"
+ }
+}

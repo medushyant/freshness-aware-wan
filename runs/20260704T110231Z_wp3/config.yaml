@@ -1,0 +1,4 @@
+git_commit: eeb9a11f
+mode: synthetic-grounded
+tau_dedup: 0.88
+vlm_cache_scenes: null

@@ -1,0 +1,13 @@
+Freshness-aware moving-target extension -- verification
+========================================================
+PASS  F1 eta-floor rises monotonically with target speed  | eta 0.549 -> 0.719
+PASS  F1 energy rises monotonically with target speed  | E 1.704 -> 1.853 J (+9%)
+PASS  F2 mean eta increases with agility across random pairs  | 0.549 < 0.628 < 0.719
+PASS  F2 mean energy increases with agility across random pairs  | 2.007 < 2.178 < 2.180 J
+PASS  F3 lam_f=0 reduces fresh-aware to the paper (sanity)  | 20/20 identical
+PASS  F3 fresh-aware cuts root staleness  | 40% fresher
+PASS  F3 staleness cut comes at no energy cost  | energy change -1.5%
+PASS  F4 freshness advantage increases with agility spread  | 34% -> 48%
+PASS  F5 Kalman/IMM dominate naive finite-difference CV on every class  | filtering beats differencing
+PASS  F5 prediction pays on constant-velocity targets  | best 7.48 < react 9.74 m
+PASS  F5 adaptive prediction yields a fresher report on moving targets  | staleness 12.39 <= 16.14

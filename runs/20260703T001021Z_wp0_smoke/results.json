@@ -1,0 +1,107 @@
+{
+ "E_J": 12.68944078526741,
+ "rounds": 3,
+ "ledger": {
+  "total_J": 12.68944078526741,
+  "by_kind": {
+   "mobility": 4.675079767757495e-16,
+   "compute": 12.090528631851566,
+   "comm_payload": 0.5989121534158404,
+   "comm_control": 0.0,
+   "negotiation_llm": 0.0
+  },
+  "by_source": {
+   "MEASURED": 0.0,
+   "MODELED": 12.689440785267406
+  },
+  "by_agent": {
+   "1": 1.666763281945681,
+   "4": 1.7289302051145143,
+   "2": 1.654707637758527,
+   "0": 1.3555268399120786,
+   "7": 2.3542989753491415,
+   "3": 1.399456538862171,
+   "6": 2.529757306325296
+  },
+  "n_entries": 21
+ },
+ "seeds": [
+  5
+ ],
+ "_meta": {
+  "name": "wp0_smoke",
+  "wall_s": 0.0,
+  "git_commit": "dd6f06e",
+  "config": {
+   "arena_m": 500.0,
+   "stress_regime": true,
+   "control": {
+    "B_msg_bits": 256,
+    "B_hdr_bits": 128,
+    "P_ctrl_dbm": 10.0,
+    "R_comm_m": 250.0
+   },
+   "auction": {
+    "eps0_frac": 0.5,
+    "eps_div": 4.0
+   },
+   "gossip_rounds": 3,
+   "channel_tier1": {
+    "sigma_sh_db": 8.0,
+    "d_c_m": 25.0,
+    "rician_K_db": 6.0,
+    "ar1_rho": 0.7,
+    "grid_m": 5.0
+   },
+   "predictor": {
+    "gp_matern_nu": 1.5
+   },
+   "conformal": {
+    "alphas": [
+     0.1,
+     0.2
+    ],
+    "n_cal": 200
+   },
+   "planner": {
+    "candidate_grid": 7
+   },
+   "grounded": {
+    "tau_dedup": 0.88,
+    "trust_ema": 0.7,
+    "trust_threshold": 0.5,
+    "corrupt_k_facts": 3,
+    "latent_dim": 512,
+    "latent_bits_per_fact": 8256
+   },
+   "mission": {
+    "battery_factor": 3.0,
+    "s_max": null,
+    "g_min": null
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "seeds_sweep": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "experiment": "wp0_smoke",
+   "seed": 5,
+   "n": 8,
+   "git_commit": "dd6f06e"
+  }
+ }
+}

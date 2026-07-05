@@ -1,0 +1,30 @@
+N:
+- 6
+- 8
+- 10
+control:
+  B_hdr_bits: 128
+  B_msg_bits: 256
+  P_ctrl_dbm: 10.0
+  R_comm_m: 250.0
+  e_tok_in_J: 0.00015
+  e_tok_out_J: 0.00045
+git_commit: 2d519f55
+schemes:
+- hub
+- greedy
+- auction
+- rungB
+- rungC
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+use_llm: true

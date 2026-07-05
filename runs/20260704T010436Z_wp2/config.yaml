@@ -1,0 +1,10 @@
+alphas:
+- 0.1
+- 0.2
+channel:
+  ar1_rho: 0.7
+  d_c_m: 25.0
+  grid_m: 5.0
+  rician_K_db: 6.0
+  sigma_sh_db: 8.0
+git_commit: 4eda68a2

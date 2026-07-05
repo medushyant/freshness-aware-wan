@@ -1,0 +1,21 @@
+{
+ "viol_rate": 0.35,
+ "conformal": {
+  "alpha": 0.2,
+  "qhat_db": 2.93426646186612,
+  "coverage": 0.8227848101265823,
+  "n_links": 79,
+  "completion": 0.9375,
+  "E_certified": 8.941412750295646,
+  "E_uncertified": 8.78663287718161
+ },
+ "_meta": {
+  "name": "wp2_sionna",
+  "wall_s": 0.6,
+  "git_commit": "eeb9a11f",
+  "config": {
+   "grid": "/Users/dushyantkumar/Documents/BTP_ILAC_WAN/assets/sionna_gain_grid.npy",
+   "git_commit": "eeb9a11f"
+  }
+ }
+}

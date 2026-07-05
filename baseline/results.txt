@@ -1,0 +1,20 @@
+Direction 1 verification report  (21 s total)
+============================================================
+PASS  E1 trends: motion never hurts (gain depends on unpublished kappas)  | 9.173 vs 9.171 J
+PASS  E1 trends: proposed < max-power  | 9.173 vs 11.137 J
+PASS  E1 trends: no-semantic infeasible under stress (paper Fig. 5b/5e)  | all seeds
+PASS  E1 trends: blossom <= random  | 9.173 vs 10.529 J
+PASS  E2 interior optimum exists (eta_min < eta_j* < eta_req)  | eta_j* range [0.16, 0.72]
+PASS  E2 eta_j* increases with lam (monotone fidelity response)
+PASS  E3 reference violates the fidelity floor  | D_ref=2.21 > Dmax=1.20
+PASS  E3 a frontier point dominates the reference on BOTH axes  | ref (D=2.21, E=0.613)
+PASS  E3 frontier monotone (D falls as lam rises)
+PASS  E3 floor met at moderate energy premium  | +62% over the energy-only optimum
+PASS  E4 WZ turns an infeasible deadline into a feasible one  | blind link: infeasible; WZ link: E=0.359 J
+PASS  E4 WZ never worse, strictly better at high overlap  | 5% pair-energy saving at rho=0.9
+PASS  E5 coverage >= 1-alpha (alpha=0.20)  | lam*=0.30  q=0.83  coverage=0.97
+PASS  E5 coverage >= 1-alpha (alpha=0.10)  | lam*=0.30  q=0.97  coverage=0.97
+PASS  E6 derived per-hop bound enforces D_root <= Dmax (lam=0!)  | D = 0.40, 0.80, 1.08
+
+figures/: E1_reproduction.png, E2_interior_optimum.png, E3_pareto_frontier.png, E4_wz_savings.png, E5_conformal.png, F1b_energy_vs_N.png, G2_tracking_energy.png, G3_target_paths.png, G4_freshness_compression.png, G5_value_topology.png, G6_spread.png, M1_matching_quality.png, M2_optimality_gap.png, T1_zeta_robustness.png, T2_optimality_gap.png, T3_size_transfer.png, U4_fairness.png, W1_washout_and_mechanism.png, W2_value_coupling.png, W3_value_mechanism_clean.png
+PASS  F1b energy grows with N, H-MAP <= random at every N

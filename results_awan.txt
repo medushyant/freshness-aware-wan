@@ -1,0 +1,35 @@
+PASS  W0.1 regression gate green (57 Phase-1 PASS lines)  | results.txt:ok results_d2.txt:ok results_freshness.txt:ok results_metaheuristics.txt:ok results_targets.txt:ok results_upgrades.txt:ok
+PASS  W0.2 adapters reproduce the E1 blossom mission energy  | adapter 9.1728 J vs results.txt 9.173 J
+PASS  W0.3 ledger invariant holds on a 3-round sim AND simcore == frozen mission  | ledger 12.6894 J == episode 12.6894 J; frozen 12.6894 J; 3 rounds; kinds mobility=0.000,compute=12.091,comm_payload=0.599
+PASS  W0.4 config -> run -> results.json -> figure round-trip works  | 20260703T001021Z_wp0_smoke -> figures/awan/F0_wp0_smoke.png
+PASS  A1.10 mock-vs-LLM negotiation matching-quality gap reported  | LLM mission energy +0.36% vs mock
+PASS  A1.1 greedy produces a valid matching every seed/round  | 30 missions, all <=1 link/agent, retired excluded
+PASS  A1.2 greedy meets the >=1/2 max-weight-matching bound empirically  | 56/56 feasible rounds
+PASS  A1.3 auction within eps-bound of Blossom on >=95% of feasible rounds  | within 2%: 56/56 (100%); exact 54/56; gap mean +0.025% max +1.365%
+PASS  A1.4 auction mission energy within 5% of centralized Blossom (H1)  | N6:-1.15%(p=1.00) N8:+3.04%(p=0.23) N10:-2.07%(p=0.43)
+PASS  A1.5 decentralized control energy < 3% of mission; hub overhead priced (H2)  | N6:E_hub=0.017mJ auc_ctrl=0.465mJ(0.005%) N8:E_hub=0.021mJ auc_ctrl=0.799mJ(0.006%) N10:E_hub=0.030mJ auc_ctrl=1.342mJ(0.008%)
+PASS  A1.6 Rung-B learned bids <= Rung-A energy at majority of N  | N6:-3.15% N8:-2.32% N10:+2.79%  (better at 2/3 N)
+PASS  A1.7 decentralized degrades gracefully; centralized stalls under dropout (H3)  | q>0: decentralized completes 100%, centralized fails 100%; dec energy q0->q0.2: 16.13->13.58 J
+PASS  A1.8 local LLM engine available (rerun with --llm to exercise)  | mock carries statistics by design; --llm not requested this run
+PASS  A1.9 coordination break-even curve produced (H4)  | hub vs mock control @N=10: 0.029 vs 0.100 mJ; crossover N*=None
+PASS  C0 channel: model=paper reproduces Phase-1 exactly  | 3 seeds, |dE| < 1e-9 J
+PASS  C1 paper's deterministic optimum violates deadlines under realistic fading (H5a)  | violation rate sigma4=62% sigma8=60% (hypothesis >=20%); mean overrun 40.38s at sigma8
+PASS  C2 conformal dB-margin planner meets Pr(deadline) >= 1-alpha held-out (H5b)  | alpha=0.1: 0.94>=0.90 (q=13.3dB, +4%E)  alpha=0.2: 0.87>=0.80 (q=9.9dB, +2%E)
+PASS  C3 move-to-predicted-channel saves energy vs move-to-shorter-distance (H6)  | static 2.062J/60%v | distance 3.084J/100%v | predictive 2.173J/20%v (Delta -29.5%) | certified(q=9.9dB) 1.975J/0%v/90%defer
+PASS  C4 twin+residual GP (B) beats full GP (A) at every sample size  | n=30: A=12.60 B=7.79 dB  n=100: A=11.41 B=6.37 dB  n=300: A=10.34 B=5.48 dB
+PASS  I0 unified sim: abstract+hub+paper == Phase-1 exactly  | 3 seeds, |dE| < 1e-9 J — Phase-1 is a strict special case
+PASS  I1 grand showdown produced; A-WAN on the composite frontier (H11)  | A-WAN wins 4/5 composite axes vs paper | E: paper 16.66 vs awan 14.85 J (p=1.00) | viol: 52% vs 14% | drop@0.2: 0% vs 100% | stale: 42.9 vs 29.4
+PASS  I2 event-triggered re-aggregation <= periodic energy at comparable staleness  | E: event 118.2 vs periodic 136.2 J; peak staleness 73.4 vs 72.6
+PASS  I3 battery-aware bidding extends network lifetime (extends U4)  | lifetime 5.3 vs 5.3 slots (battery-aware vs sum-energy, B=2.0x)
+PASS  I4 surrogate MAPE reported; matcher-on-surrogate energy penalty < 5%  | 5400 pairs, MAPE 0.1%, feasible-rate 94%, energy penalty -1.14%
+PASS  I5 first runtime curve for this framework at N >= 100  | N100: bl=259 au=111 gr=7 ms N200: bl=2105 au=553 gr=24 ms
+PASS  C5 ray-traced (Sionna RT) ground truth confirms H5: paper plan unsafe, conformal certifies  | violations 35%; conformal coverage 0.82 >= 0.80 (q=2.9 dB, MEASURED geometry / MODELED radio constants)
+PASS  G1 VLM emits parseable JSON facts on >=90% of views (<=1 retry)  | 94% of 90 views (10 retries, 5 regex-rescued) — model HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+PASS  G2 measured fused size is sub-additive in overlap (vs Eq. (2) additive)  | 92% of 102 overlapping pairs strictly below additive; mean saving 56%
+PASS  G3 geometric-vs-semantic overlap divergence quantified (H7)  | Spearman=0.36, pair-ranking inversions=38% (120 agent pairs) — the geometric proxy misranks
+PASS  G4 per-codec rate-fidelity curves measured; latent-vs-text verdict reported (H10)  | latent-minus-text F1 at equal bits: +0.000 (tie); text@eta1: F1=0.33/2.9kb, latent@eta1: F1=0.33/82.8kb
+PASS  G5 mJ/token measured + grounding-gap ratio >= 10x (H8)  | prefill 103.99 / decode 5371.08 mJ/tok (MEASURED: colab-nvml); per-view real 273.0 J vs paper Eq.(6-7) 1.15e-04 J -> gap 2.4e+06x
+PASS  G6 one liar poisons the tree; overlap-consistency gate contains it (H9)  | base root-corruption 95% -> gated 15% (fabricate, 20 scenes); verification overhead 0.00% of perception energy (MODELED)
+PASS  G7 conformal lower bound certifies a root-F1 floor on the REAL pipeline  | marginal coverage 0.89 >= 0.80 over 20 random splits; mean certified floor F1 >= 0.05 at eta=1.0, alpha=0.2
+PASS  G8 all WP-3 figures regenerated cache-only (no VLM loaded in this process)  | 20 scenes from runs/vlm_cache/; VLM module absent from sys.modules
+PASS  I6 A-WAN website tab renders (Playwright: 7 cards, 34 check rows, 0 console errors)

@@ -1,0 +1,2 @@
+[     0.2s] paper plan under sionna_map: 35% deadline violations
+[     0.5s] alpha=0.2: qhat=2.93 dB -> coverage 0.823

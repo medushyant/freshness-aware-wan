@@ -1,0 +1,714 @@
+{
+ "scenes": 20,
+ "vlm": {
+  "calls": 150,
+  "parse_fail": 70,
+  "retries": 70,
+  "tok_in": 140920,
+  "tok_out": 23462,
+  "wall_s": 1223.6838295459747,
+  "model_id": "HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
+ },
+ "g1_validity": 0.5333333333333333,
+ "fusion_rows": [
+  {
+   "iou": 0.425186665365129,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.809471913435843,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5975654058383407,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.396635721247258,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3372356736667838,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.7356176021777514,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3270186194249642,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.46195622808457465,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.11532571879613925,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.25900660951020343,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3879678145201622,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.18163778726648097,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.26205807585192553,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.3576682358358154,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.16420568538529573,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.3323558333897348,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.40214876740764477,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.13346693647253485,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.4222544694560904,
+   "additive": 2,
+   "measured": 1
+  },
+  {
+   "iou": 0.38153407373682263,
+   "additive": 2,
+   "measured": 1
+  },
+  {
+   "iou": 0.4265589586266259,
+   "additive": 2,
+   "measured": 1
+  },
+  {
+   "iou": 0.4188809652992715,
+   "additive": 2,
+   "measured": 1
+  },
+  {
+   "iou": 0.6555767292945642,
+   "additive": 2,
+   "measured": 1
+  },
+  {
+   "iou": 0.630990598177243,
+   "additive": 2,
+   "measured": 1
+  },
+  {
+   "iou": 0.1284409648441358,
+   "additive": 2,
+   "measured": 2
+  },
+  {
+   "iou": 0.03305266516404287,
+   "additive": 2,
+   "measured": 2
+  },
+  {
+   "iou": 0.039348659437930575,
+   "additive": 2,
+   "measured": 2
+  },
+  {
+   "iou": 0.42717431835124364,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.46502057574155914,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.9136633412152622,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.1372441421898824,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6568786116286419,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.1461708658194958,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.12734770245840607,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.27233478104449993,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.22158777958019427,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.7029319363688935,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5453578167925635,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2298039629509462,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6299585926021637,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.34626651141932013,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.31465804643312384,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.4026434833899138,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.549136144864179,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5596633474077066,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2162436090879221,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5605061171563969,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3475438423531966,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.7778502379955087,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.26921863922724015,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6356420611736059,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.20620062220788996,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6350710954127728,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2943205003186298,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.42539313954785607,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.10555596342396845,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.18661783977821422,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2880439038157421,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.23442173470769967,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.1754032175067187,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5173687206711297,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2084540256887661,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.27807290341406005,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3886140217423201,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.4309329063802283,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.14291868443866568,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.16684830058314354,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.4615390533459174,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.10678888310558576,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.37947746399512106,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.132358064128111,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.1942487956900593,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.22225606089753147,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2689515659750729,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.1510661694563896,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.7401157640313774,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.13687465178676,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2146863718323128,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6361524078166542,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.36399292915683773,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.4374593063251876,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3633434482370811,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.4117103129472962,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6706244876414206,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.2419345115458152,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.7795042860156057,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.2833024184613202,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.18432606659820638,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.2590573380716365,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.26624134262280186,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.13289044742732922,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.22872406487238803,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.41966378094697004,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5941158017075808,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.32780759629919115,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3050617194114254,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.6592753938567516,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.20308788432241603,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.8060107681993466,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.2360600425673592,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5377315485201043,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.21167693522543532,
+   "additive": 1,
+   "measured": 1
+  },
+  {
+   "iou": 0.2844118357828457,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.4551903104570172,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3344012128328437,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.11768506421352054,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.8429534072510978,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.14374043818143808,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.5332315672622321,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.26998372027683193,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.17687199621251823,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.35752785655285235,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.3477260746756242,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.265756010758645,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.30294135621234064,
+   "additive": 2,
+   "measured": 2
+  },
+  {
+   "iou": 0.12168342821713476,
+   "additive": 2,
+   "measured": 2
+  },
+  {
+   "iou": 0.6011827951167026,
+   "additive": 2,
+   "measured": 2
+  },
+  {
+   "iou": 0.32115364296907467,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.4665589616682981,
+   "additive": 0,
+   "measured": 0
+  },
+  {
+   "iou": 0.12948634449092,
+   "additive": 0,
+   "measured": 0
+  }
+ ],
+ "h7": {
+  "spearman": 0.18212952314801395,
+  "inversions_pct": 42.53367676807602
+ },
+ "rate_fidelity": {
+  "text": [
+   {
+    "eta": 0.25,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 0.5592
+   },
+   {
+    "eta": 0.5,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 0.5592
+   },
+   {
+    "eta": 0.75,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 0.6472
+   },
+   {
+    "eta": 1.0,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 0.6472
+   }
+  ],
+  "latent": [
+   {
+    "eta": 0.25,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 6.7936000000000005
+   },
+   {
+    "eta": 0.5,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 6.7936000000000005
+   },
+   {
+    "eta": 0.75,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 9.264
+   },
+   {
+    "eta": 1.0,
+    "f1": 0.0,
+    "f1_ci": 0.0,
+    "kbits": 9.264
+   }
+  ]
+ },
+ "h10_verdict_f1_delta": 0.0,
+ "meter": {
+  "prefill_mJ_per_tok": 37.64183171348109,
+  "decode_mJ_per_tok": 112.92549514044327,
+  "total_mJ": 7953944.892048836,
+  "tok_in": 140920,
+  "tok_out": 23462,
+  "wall_s": 1223.6838295459747,
+  "source": "MODELED"
+ },
+ "grounding_gap": {
+  "E_real_J_per_view": 53.026299280325574,
+  "E_paper_J": 6.929209650915868e-06,
+  "ratio": 7652575.39484562
+ },
+ "corruption": {
+  "fabricate_base": 1.0,
+  "fabricate_gated": 0.8,
+  "swap_base": 0.2,
+  "swap_gated": 0.15,
+  "jitter_base": 0.2,
+  "jitter_gated": 0.15
+ },
+ "trust_overhead_pct": 6.129034166270495e-07,
+ "conformal_real": {
+  "eta_star": 1.0,
+  "coverage": 0.0,
+  "F_min": 0.25,
+  "alpha": 0.2
+ },
+ "_meta": {
+  "name": "wp3",
+  "wall_s": 33.6,
+  "git_commit": "f7470aac",
+  "config": {
+   "tau_dedup": 0.88,
+   "mode": "synthetic-grounded",
+   "vlm_cache_scenes": null,
+   "git_commit": "f7470aac"
+  }
+ }
+}

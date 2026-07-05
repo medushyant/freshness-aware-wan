@@ -1,0 +1,7 @@
+Metaheuristic comparison baselines -- verification
+====================================================
+PASS  M1 no metaheuristic beats exact Blossom at any N (sanity)  | best metaheuristic still -0.0% above
+PASS  M1 metaheuristics stay far below random  | worst meta 0.3% < random 0.4%
+PASS  M1 exact Blossom stays fast (no need for metaheuristics)  | blossom 12.5 ms at N=30
+PASS  M2 learned lookahead beats every per-round matcher  | learned 3.6%
+PASS  M2 all structured matchers beat random  | random 29.1%

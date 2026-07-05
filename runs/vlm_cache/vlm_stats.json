@@ -1,0 +1,1 @@
+{"calls": 90, "parse_fail": 5, "retries": 10, "tok_in": 80240, "tok_out": 14374, "wall_s": 1089.71440076828, "model_id": "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"}

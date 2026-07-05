@@ -16,6 +16,7 @@
   <a class="brand" href="#overview"><span class="dot"></span>WAN<span class="thin">·freshness</span></a>
   <nav id="tabs">
     <button data-tab="overview" class="active">Overview</button>
+    <button data-tab="journey">Journey</button>
     <button data-tab="swarm">Swarm</button>
     <button data-tab="hmap">H-MAP</button>
     <button data-tab="blossom">Blossom</button>
@@ -24,6 +25,9 @@
     <button data-tab="graphs">Graphs</button>
     <button data-tab="verify">Verify</button>
     <button data-tab="compare">Before / After</button>
+    <!-- AWAN -->
+    <button data-tab="awan" class="hot">A-WAN · Phase&nbsp;2</button>
+    <!-- /AWAN -->
   </nav>
 </header>
 
@@ -56,6 +60,17 @@
       <div class="tcard" data-goto="verify"><b>Verify</b><span>Every claim is one of 58 automated checks.</span></div>
     </div>
   </div>
+</section>
+
+<!-- ===================== JOURNEY ===================== -->
+<section class="panel" id="tab-journey">
+  <div class="kicker">The whole story · one flowchart</div>
+  <h2>From the base paper to <span class="grad">A-WAN</span> — every step, every number.</h2>
+  <p class="section-lede">How the work evolved: what the paper claims, what our audit found, the two
+  Phase-1 directions, the negative result that redirected everything, the freshness spine, and the four
+  Phase-2 work packages that answer the paper's own future-work sentence. Every chip is a real measured
+  number.</p>
+  <div id="journeyRoot"><p class="muted">loading…</p></div>
 </section>
 
 <!-- ===================== SWARM ===================== -->
@@ -176,13 +191,17 @@
   <div id="baCards" class="ba-cards"></div>
   <div class="table-wrap card"><table id="cmpTable"><thead><tr><th>Dimension</th><th>Base paper</th><th>Our extension</th></tr></thead><tbody></tbody></table></div>
 </section>
+
+<!-- AWAN -->
+<section class="panel" id="tab-awan"><div id="awanRoot"><p class="muted">loading A-WAN data…</p></div></section>
+<!-- /AWAN -->
 </main>
 
 <div id="lightbox"><img id="lbImg" alt="figure" /><span id="lbCap"></span></div>
 
 <footer><div class="foot-inner">
-  <div><strong>Freshness-Aware Semantic Aggregation</strong><br/><span class="muted">Extension of Zhao et al., ILAC-WAN (arXiv:2604.02381). Every figure regenerates from the repo.</span></div>
-  <div class="muted small">Real engine output · 58/58 checks · canvas + SVG + GSAP + Chart.js</div>
+  <div><strong>Freshness-Aware Semantic Aggregation → A-WAN</strong><br/><span class="muted">Extension of Zhao et al., ILAC-WAN (arXiv:2604.02381). Every figure regenerates from the repo.</span></div>
+  <div class="muted small">Real engine output · 57 Phase-1 + 35 Phase-2 checks, 0 fail · canvas + SVG + GSAP + Chart.js + Three.js</div>
 </div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -192,5 +211,8 @@
 <script src="js/sim.js"></script>
 <script src="js/algos.js"></script>
 <script src="js/app.js"></script>
+<!-- AWAN --><script src="js/awan.js"></script><!-- /AWAN -->
+<script src="js/journey.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>

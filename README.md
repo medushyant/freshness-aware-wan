@@ -229,3 +229,44 @@ headless across every tab (0 console errors); screenshots in `docs/site_preview/
 `docs/freshness_section.tex` is an Overleaf-ready drop-in `\section` in the
 proposal's own macro style, with `docs/freshness_refs.bib` (4 new references)
 and `docs/freshness_intro_patch.tex` (the spine sentence for the intro).
+
+# Phase 2 — A-WAN (the Autonomous, Physically-Grounded WAN)
+
+Phase 2 executes the base paper's own future-work sentence — *"dynamic channel
+models and decentralized coordination protocols"* — and goes further. All
+Phase-2 code lives in `awan/` + `run_awan_*.py` (Python 3.12 venv:
+`.venv-awan`); Phase-1 code and results above are frozen and keep reproducing
+(`bash scripts/regress.sh`).
+
+- **WP-1 Decentralized coordination** (`awan/coord/`): every control message
+  priced in joules (first explicit bill for the paper's "free" hub, L10);
+  distributed greedy (½-approx), Bertsekas ε-auction (≈Blossom on 100% of
+  feasible rounds within a 2% ε-bound), the frozen Phase-1 value model as a
+  decentralized bid function, and an A2A-style LLM negotiation layer (real
+  Qwen2.5-0.5B, 100% schema-valid JSON, tokens charged as energy). Dropout:
+  the paper's hub cliffs 100%→0% completion; the auction stays at 100%.
+- **WP-2 Channel intelligence** (`awan/channel/`): Gudmundson-correlated
+  shadowing + Rician AR(1) fading; the paper's deterministic plan misses ~60%
+  of deadlines under it; a dB-domain split-conformal margin certifies
+  Pr(deadline) ≥ 1−α at +2–4% energy; GP radio maps (twin+residual beats
+  full-GP everywhere); move-to-predicted-channel beats move-closer by ~30%.
+- **WP-3 Grounded pipeline** (`awan/grounded/`): real SmolVLM2 perception on
+  exact-ground-truth synthetic street scenes (OPV2V on Colab:
+  `notebooks/03_opv2v_pipeline.ipynb`), SigLIP RAG fusion (measured
+  sub-additive vs Eq. (2)), text/latent codecs with exact bit counts, a
+  measured grounding-gap table (~10⁶× vs the paper's τf²W term), corruption
+  propagation + an overlap-consistency trust gate, and a conformal fact-budget
+  certificate on the real pipeline. VLM outputs are cached under
+  `runs/vlm_cache/` so every figure regenerates without a GPU.
+- **WP-4 Integration** (`awan/mission/`, `awan/surrogate.py`): one simulator,
+  all axes pluggable; the grand showdown (paper vs Phase-1 vs A-WAN, one world,
+  ten seeds); event-triggered re-aggregation; per-agent batteries + lifetime;
+  a learned pair surrogate (MAPE ~0.1%) driving the first N≥100 runtime curve.
+
+Reproduce: `source .venv-awan/bin/activate && python run_awan_all.py`
+(add `--full` to re-run VLM perception). Checks land in `results_awan.txt`;
+figures in `figures/awan/`; the website gains an **A-WAN · Phase 2** tab
+(`export_awan_web_data.py` → `web/data_awan.json`, verified by
+`scripts/shoot_awan.py`). Colab notebooks for measured GPU energy, OPV2V, and
+Sionna RT live in `notebooks/`. Decisions and honest deviations:
+`docs/DECISIONS.md`.
